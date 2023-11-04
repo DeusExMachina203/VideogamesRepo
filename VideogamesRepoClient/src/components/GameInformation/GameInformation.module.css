@@ -1,0 +1,20 @@
+.page_image{
+	max-width: 100px;
+}
+
+.gameContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+.info_bit{
+	margin: 10px;
+}
+
+.info_label{
+	color: #FF89C7;
+}
+
+.info_img{
+	max-width: 300px;
+}

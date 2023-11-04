@@ -1,0 +1,117 @@
+
+.error{
+	color: red;
+}
+
+.form{
+	color: white;
+}
+
+.game_form{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: 10px;
+
+	font-family: 'Poppins';
+	color: white;
+}
+
+.name_input{
+	height: 20px;
+	min-width: 400px;
+	border-radius: 100px;
+	font-family: 'Poppins';
+	font-weight: 600;
+	font-size: 15px;
+	padding: 10px;
+	margin: 5px;
+}
+
+.description_input{
+	min-width: 400px;
+	border-radius: 5px;
+	font-family: 'Poppins';
+	font-weight: 600;
+	font-size: 15px;
+	padding: 10px;
+	margin: 10px;
+}
+
+.date_input{
+	margin: 10px;
+	border-radius: 20px;
+	padding: 5px;
+	max-width: 110px;
+}
+
+.rating_input{
+	margin: 10px;
+	max-width: 200px;
+}
+
+.add_button{
+	background: #DB3C90;
+	mix-blend-mode: normal;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 40px;
+	padding: 10px 20px 10px 20px;
+	width: 100%;
+	max-width: 150px;
+	justify-content: center;
+	margin: 0px 10px 0px 10px;
+
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+
+	color: #FFFFFF;
+}
+
+.tags_input{
+	height: 15px;
+	max-width: 200px;
+	border-radius: 100px;
+	font-family: 'Poppins';
+	font-weight: 600;
+	font-size: 15px;
+	padding: 10px;
+	margin: 5px;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+

@@ -1,0 +1,36 @@
+.list{
+	max-width: 120px;
+	min-width: 100px;
+	min-height: 100px;
+	border: solid white 1px;
+	display: flex;
+	flex-wrap: wrap;
+	row-gap:10px;
+	margin: 10px;
+}
+.tags{
+	background: #DB3C90;
+	mix-blend-mode: normal;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 40px;
+	width: 100%;
+	max-width: 150px;
+	justify-content: center;
+	max-height: 25px;
+
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
+	line-height:10px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+
+	color: #FFFFFF;
+}
+.cross{
+	width: 10px;
+	height: 10px;
+}

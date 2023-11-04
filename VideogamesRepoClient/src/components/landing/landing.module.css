@@ -1,0 +1,51 @@
+.landing{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title{
+	font-family: 'Inter';
+	font-style: italic;
+	font-weight: 700;
+	font-size: 64px;
+	line-height: 77px;
+
+	color: #FFFFFF;
+}
+.principal_button{
+	background: #DB3C90;
+	mix-blend-mode: normal;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 40px;
+	padding: 10px 20px 10px 20px;
+	width: 100%;
+	justify-content: center;
+
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 32px;
+	line-height: 48px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+
+	color: #FFFFFF;
+}
+
+.principal_button:hover{
+	color: none;
+}
+
+.title_image{
+	max-width: 360.74px;
+	max-height: 394.27px;
+	width: 50%;
+}
+
+.link{
+	min-width: 300px;
+	width: 33%;
+}

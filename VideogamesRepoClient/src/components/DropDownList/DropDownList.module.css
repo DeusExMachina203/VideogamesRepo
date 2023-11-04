@@ -1,0 +1,20 @@
+.container {
+	min-width: 100px;
+	margin: 10px;
+	background-color: #042D70;
+	padding: 3px;
+}
+
+.list{
+	list-style: none;
+	padding: 0px;
+	position: absolute;
+	transform: translate(-3px, -15px);
+	border-radius: 25px;
+	z-index: 4;
+}
+
+.container img{
+	width: 20px;
+	height: 10px;
+}
