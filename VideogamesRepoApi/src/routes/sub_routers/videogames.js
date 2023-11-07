@@ -78,6 +78,10 @@ videogames.get('/:id', async (req, res) =>{
 				{
 					model: Console,
 					attributes: ['name']
+				},,
+				{
+					model: Image,
+					attributes: ['img']
 				}
 			]
 		});
