@@ -15,7 +15,8 @@ const Creation = () => {
 		consoles:[],
 		rating:-1,
 		launch_date: '',
-		genres: []
+		genres: [],
+		image: null
 	});
 	const genres = useSelector(state => state.games.genres);
 	const consoles = useSelector(state => state.games.consoles)
@@ -31,6 +32,7 @@ const Creation = () => {
 	//methods
 	const dispatch = useDispatch();
 	const inputHandler = (event) => {
+		console.log(event.target.value)
 		setInput({
 			...input,
 			[event.target.name]:event.target.value
@@ -70,6 +72,20 @@ const Creation = () => {
 
 	const newGenreHandler = (event) => {
 		setNewGenre(event.target.value);
+	};
+
+	const imageHandler = (event) => {
+		//convert image to blob
+		const file = event.target.files[0];
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			console.log(reader.result);
+			setInput({
+				...input,
+				image: reader.result
+			});
+		};
 	};
 
 	const nameErrorHandler = () => {
@@ -200,9 +216,11 @@ const Creation = () => {
 					<ListDisplayer name = "Géneros" setState = {genresHandler} elements = {input.genres.map(genre => genre).join('%')} />
 					<input className = {style.tags_input} type = "text" id = "new_genre" name = "new_genre" value = {newGenre} onChange = {newGenreHandler}/> <button className = {style.add_button} type = "button" onClick = {handleGenreClickDown}>Agregar</button>
 					<DropDownList splitChar = "%" setState = {genresHandler} name = "genres" elements = {genres.map(genre => genre.name).join('%')} />
+					<input className = {style.image_input} type = "file" id = "image" name = "image" onChange = {imageHandler} />
 					<button className = {style.add_button} type="submit" disabled = {!input.name || !input.consoles || !input.description || !errorList.length}>Enviar</button>
 				</form>
 				<span>{sent.length?"Respuesta enviada exitosamente":null}</span>
+				<img src = {input.image} alt = "Imagen del juego" />
 			</div>
 		</>
 	);
