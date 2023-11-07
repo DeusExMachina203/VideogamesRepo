@@ -20,7 +20,7 @@ videogames.post('/', async (req, res)=>{
 			const blobImage = new Blob([image], {type: 'text/plain'});
 			await videogame.addGenres(genresList.map(genre => genre[0].dataValues.id));
 			await videogame.addConsoles(consolesList.map(console => console[0].dataValues.id));
-			await videogame.createImage({img: blobImage});
+			await videogame.createImage({img: image});
 			console.log(genresList[0][0].dataValues);
 			res.status(201).json(videogame);
 		}
@@ -78,7 +78,7 @@ videogames.get('/:id', async (req, res) =>{
 				{
 					model: Console,
 					attributes: ['name']
-				},,
+				},
 				{
 					model: Image,
 					attributes: ['img']
