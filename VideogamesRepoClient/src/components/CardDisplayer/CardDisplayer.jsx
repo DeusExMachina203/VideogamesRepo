@@ -140,9 +140,9 @@ const CardDisplayer = ({searchTerm}) => {
 	return(
 		<>
 			<div className = {style.displayer}>
-				{foreignGames.length?page.map(game => (<GameCard 
+				{foreignGames.length || ownGames.length?page.map(game => (<GameCard 
 					name = {game.name} 
-					image = {game.background_image} 
+					image = {game.background_image? game.background_image: game.bg_image} 
 					genres={game.genres.map(genre=> genre.name).join(', ')} 
 					id = {game.id}
 					key = {game.id}
