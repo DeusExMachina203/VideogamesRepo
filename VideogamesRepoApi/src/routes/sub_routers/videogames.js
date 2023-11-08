@@ -1,33 +1,56 @@
 const {Router} = require( 'express' );
 const {Videogame, Genre, Console, Image} = require('../../db.js');
 const {Op} = require('sequelize');
-const { parse } = require('dotenv');
+const multer = require('multer');
+const fs = require('fs');
+const {OWN_API_URL} = process.env;
 
 const videogames = Router();
 
-videogames.post('/', async (req, res)=>{
-	const {name, description, launch_date, rating, genres, consoles, image} = req.body;
+const storage = multer.diskStorage({
+	destination: function(req, file, cb){
+		cb(null, __dirname + '/../../images');
+	},
+	filename: function(req, file, cb){
+		cb(null, file.originalname);
+	}
+});
+
+const images = multer({storage:storage});
+
+videogames.post('/', images.single("image"), async (req, res)=>{
+	const {name, description, launch_date, rating, genres, consoles} = req.body;
 	try {
 		if(name && description && consoles){
-			const videogame = await Videogame.create(req.body);
-			// const genresList = await videogame.addGenres(genres);
-			const genresList = await Promise.all(genres.map(genre => Genre.findOrCreate({
+			const genresArray = genres.split('%');
+			const consolesArray = consoles.split('%');
+			const videogame = await Videogame.create({...req.body, bg_image: ''});
+			const genresList = await Promise.all(genres.split('%').map(genre => Genre.findOrCreate({
 				where:{name: genre}
-			})));
-			const consolesList = await Promise.all(consoles.map(consoleUnit => Console.findOrCreate({
+			})));	
+			const consolesList = await Promise.all(consoles.split('%').map(consoleUnit => Console.findOrCreate({
 				where:{name: consoleUnit}
 			})));
-			const blobImage = new Blob([image], {type: 'text/plain'});
 			await videogame.addGenres(genresList.map(genre => genre[0].dataValues.id));
 			await videogame.addConsoles(consolesList.map(console => console[0].dataValues.id));
-			await videogame.createImage({img: image});
-			console.log(genresList[0][0].dataValues);
+			//change name of file to id of videogame
+			const name = req.file.originalname;
+			const extension = name.split('.')[1];
+			const newName = videogame.id + '.' + extension;
+			fs.renameSync(__dirname + '/../../images/' + name, __dirname + '/../../images/' + newName);
+			//store uri of image in database
+			const imageURI = `${OWN_API_URL}/static/` + newName;
+			videogame.bg_image = imageURI;
+			await videogame.save();
+			await videogame.createImage({img: imageURI});
+			//send response
 			res.status(201).json(videogame);
 		}
 		else{
 			res.status(401).json({error_message: 'Missing or invalid information'});
 		}
 	}catch(error){
+		console.log(error);
 		res.status(500).json({error_message: error.message});
 	}
 });

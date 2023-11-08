@@ -30,5 +30,9 @@ module.exports = (sequelize) => {
         min:-1,
       }
     },
+    bg_image:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {timestamps: false});
 };

@@ -5,6 +5,9 @@ import style from './GamePage.module.css';
 import GameInformation from '../GameInformation/GameInformation';
 import arrow from '../../media/back.png'
 
+const API_KEY = import.meta.env.VITE_KEY;
+const API_URL = import.meta.env.VITE_API_URL;
+
 const GamePage = () => {
 	//variables
 	const {id} = useParams();
@@ -18,7 +21,7 @@ const GamePage = () => {
 			.then(data => setGame({...data, property: 'own'}));
 		}
 		else{
-			fetch(`https://api.rawg.io/api/games/${id}?key=c281fe64559346ee8e2a1c9c99cf53a9`).then(response=> response.json())
+			fetch(`https://api.rawg.io/api/games/${id}?key=${API_KEY}}`).then(response=> response.json())
 			.then(data => setGame({...data, property: 'external'}));
 		}
 	},[id]);
@@ -29,7 +32,7 @@ const GamePage = () => {
 			<div className = {style.info_container}>
 				<Link className = {style.back_button} to = "/principal"><img className = {style.back_arrow} src = {arrow} alt = "arrow" /><h3>Atrás</h3></Link>
 				{game.name?
-					<GameInformation  img = {game.background_image} 
+					<GameInformation  img = {game.background_image? game.background_image: game.bg_image} 
 						name = {game.name} 
 						description = {game.description}
 						launch_date = {game.launch_date} 
