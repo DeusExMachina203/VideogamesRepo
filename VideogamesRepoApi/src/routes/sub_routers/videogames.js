@@ -3,6 +3,7 @@ const {Videogame, Genre, Console, Image} = require('../../db.js');
 const {Op} = require('sequelize');
 const multer = require('multer');
 const fs = require('fs');
+const {OWN_API_URL} = process.env;
 
 const videogames = Router();
 
@@ -32,12 +33,14 @@ videogames.post('/', images.single("image"), async (req, res)=>{
 			})));
 			await videogame.addGenres(genresList.map(genre => genre[0].dataValues.id));
 			await videogame.addConsoles(consolesList.map(console => console[0].dataValues.id));
-			// await videogame.createImage({img: image});
-			//change the name of the image file to the id of the videogame
+			//change name of file to id of videogame
 			const name = req.file.originalname;
 			const extension = name.split('.')[1];
 			const newName = videogame.id + '.' + extension;
 			fs.renameSync(__dirname + '/../../images/' + name, __dirname + '/../../images/' + newName);
+			//store uri of image in database
+			const imageURI = `${OWN_API_URL}/static/` + newName;
+			await videogame.createImage({img: imageURI});
 			res.status(201).json(videogame);
 		}
 		else{
