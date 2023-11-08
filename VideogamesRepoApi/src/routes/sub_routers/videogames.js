@@ -19,12 +19,12 @@ const storage = multer.diskStorage({
 const images = multer({storage:storage});
 
 videogames.post('/', images.single("image"), async (req, res)=>{
-	const {name, description, launch_date, rating, genres, consoles, image} = req.body;
+	const {name, description, launch_date, rating, genres, consoles} = req.body;
 	try {
 		if(name && description && consoles){
 			const genresArray = genres.split('%');
 			const consolesArray = consoles.split('%');
-			const videogame = await Videogame.create(req.body);
+			const videogame = await Videogame.create({...req.body, bg_image: ''});
 			const genresList = await Promise.all(genres.split('%').map(genre => Genre.findOrCreate({
 				where:{name: genre}
 			})));	
@@ -40,7 +40,10 @@ videogames.post('/', images.single("image"), async (req, res)=>{
 			fs.renameSync(__dirname + '/../../images/' + name, __dirname + '/../../images/' + newName);
 			//store uri of image in database
 			const imageURI = `${OWN_API_URL}/static/` + newName;
+			videogame.bg_image = imageURI;
+			await videogame.save();
 			await videogame.createImage({img: imageURI});
+			//send response
 			res.status(201).json(videogame);
 		}
 		else{
