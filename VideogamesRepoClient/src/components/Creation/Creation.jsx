@@ -76,16 +76,8 @@ const Creation = () => {
 
 	const imageHandler = (event) => {
 		//convert image to blob
-		const file = event.target.files[0];
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onloadend = () => {
-			console.log(reader.result);
-			setInput({
-				...input,
-				image: reader.result
-			});
-		};
+		const file = document.getElementById('image').files[0];
+		input.image = file;
 	};
 
 	const nameErrorHandler = () => {
@@ -141,29 +133,38 @@ const Creation = () => {
 
 	const submitHandler = async (event) => {
 		event.preventDefault();
-		const Response = await fetch(`${API_URL}/videogames`, {
-			method: 'POST',
-			headers:{
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(input)
-		});
-		const content = await Response.json();
-		if(!content.error_message){
-			setSent("Enviado!");
-			setInput({
-				name:"",
-				description:"",
-				consoles:[],
-				rating:-1,
-				launch_date: '',
-				genres: []
-			});
-			alert('a');
+		const formdata = new FormData();
+		const consolesCopy = input.consoles.join('%');
+		const genresCopy = input.genres.join('%');
+		for(const property in input){
+			if(property === 'image') formdata.append(property, input['image']);
+			else if(property === 'consoles') formdata.append(property, consolesCopy);
+			else if(property === 'genres') formdata.append(property, genresCopy);
+			else formdata.append(property, input[property]);
 		}
-		else setSent(content.error_message);
-		
+		try{
+			const Response = await fetch(`${API_URL}/videogames`, {
+				method: 'POST',
+				body: formdata
+			});
+			const content = await Response.json();
+			if(Response.status === 500) console.log(content.error_message);
+			else if(!content.error_message){
+				setSent("Enviado!");
+				setInput({
+					name:"",
+					description:"",
+					consoles:[],
+					rating:-1,
+					launch_date: '',
+					genres: []
+				});
+				alert('a');
+			}
+			else setSent(content.error_message);
+		}catch(error){
+			console.log(error);
+		}
 	};
 
 	useEffect(() => {

@@ -33,4 +33,6 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(status).send(message);
 });
 
+server.use('/images', express.static('public'))
+
 module.exports = server;
