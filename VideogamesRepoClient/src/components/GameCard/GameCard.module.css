@@ -36,12 +36,13 @@
 	height: 300px;
 	margin: 10px;
 	width: 80%;
+	/* transtition smothly in and out*/
+	transition: all 0.1s ease-in-out;
 }
 .card:hover{
 	/* make it move slightly upwards */
 	transform: translateY(-5px);
-	/* transtition smothly in and out*/
-	transition: all 0.1s ease-in-out;
+	
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
