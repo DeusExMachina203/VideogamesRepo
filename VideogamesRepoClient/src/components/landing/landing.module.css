@@ -4,9 +4,15 @@
 	align-items: center;
 }
 
+
+@font-face {
+	font-family: 'Hind';
+	src: local('Hind'), url(../../fonds/Hind-Bold.ttf) format('truetype');
+  }
+
 .title{
-	font-family: 'Inter';
-	font-style: italic;
+	font-family: 'Hind';
+	/* font-style: italic; */
 	font-weight: 700;
 	font-size: 64px;
 	line-height: 77px;
@@ -22,7 +28,7 @@
 	width: 100%;
 	justify-content: center;
 
-	font-family: 'Poppins';
+	font-family: 'Hind';
 	font-style: normal;
 	font-weight: 300;
 	font-size: 32px;

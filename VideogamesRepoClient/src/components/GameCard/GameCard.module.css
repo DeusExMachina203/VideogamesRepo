@@ -1,18 +1,26 @@
+@font-face {
+	font-family: 'Quicksand';
+	src: local('Quicksand'), url(../../fonds/Hind-SemiBold.ttf) format('truetype');
+  }
+
 .card_image{
-	width: 90%;
+	width: 100%;
 	height: 200px;
+	border-radius: 10px;
 	object-fit: cover;
 }
 
 .link {
-  color: #FFF;
+  color: #000;
+  text-decoration: none;
   width: 20%;
   min-width: 300px;
 }
 .link:hover {
-   color: #00F;
+   color: #626262;
 }
 .card{
+	font-family: 'Quicksand';
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -22,12 +30,19 @@
 	inline-size: 10vw;
 	overflow: break-word;
 
-	background-color: #262626;
-	border-radius: 25px;
-	padding: 20px 10px 20px 10px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 10px 10px 20px 10px;
 	height: 300px;
 	margin: 10px;
 	width: 80%;
+}
+.card:hover{
+	/* make it move slightly upwards */
+	transform: translateY(-5px);
+	/* transtition smothly in and out*/
+	transition: all 0.1s ease-in-out;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .info{
@@ -36,6 +51,11 @@
 	align-items: flex-start;
 	gap: 10px;
 	width: 100%;
+}
+
+.gameTitle{
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .genres{

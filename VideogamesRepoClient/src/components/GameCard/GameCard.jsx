@@ -11,7 +11,7 @@ const GameCard = ({name, image, genres, id}) => {
 					<img className = {style.card_image} src = {image?image:ghost} alt="Game" width = "500"/>
 					
 					<div className = {style.info}>
-						<span>{name}</span>
+						<span className={style.gameTitle}>{name}</span>
 						<span className = {style.genres}>{genres}</span>
 					</div>
 				</div>
