@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Quicksand';
-	src: local('Quicksand'), url(../../fonds/Hind-SemiBold.ttf) format('truetype');
-  }
+	src: local('Quicksand'), url(../../fonts/Quicksand.ttf) format('truetype');
+}
 
 .card_image{
 	width: 100%;
