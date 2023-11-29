@@ -21,7 +21,7 @@ const GamePage = () => {
 			.then(data => setGame({...data, property: 'own'}));
 		}
 		else{
-			fetch(`https://api.rawg.io/api/games/${id}?key=${API_KEY}}`).then(response=> response.json())
+			fetch(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`).then(response=> response.json())
 			.then(data => setGame({...data, property: 'external'}));
 		}
 	},[id]);
