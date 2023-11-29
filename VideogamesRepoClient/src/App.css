@@ -13,8 +13,13 @@
   }
 }
 
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind'), url(@/fonds/Hind-SemiBold.ttf) format('truetype');
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #161617;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,5 +43,5 @@
 }
 
 body{
-  background-color: black;
+  background-color: #010409;
 }
