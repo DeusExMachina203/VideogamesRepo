@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import style from './ListDisplayer.module.css';
-import cross from '../../media/close.png'
-import reversedCross from '../../media/reversed-close.png'
+import cross from '../../media/close.png';
 
 const ListDisplayer =  ({elements, setState, name}) => {
 
