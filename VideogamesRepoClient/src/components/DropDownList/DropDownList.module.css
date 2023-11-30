@@ -1,16 +1,19 @@
 .container {
 	min-width: 100px;
 	margin: 10px;
+	border-radius: 5px;
 	background-color: #042D70;
-	padding: 3px;
+	padding: 3px 5px 3px 5px;
 }
 
 .list{
 	list-style: none;
 	padding: 0px;
 	position: absolute;
-	transform: translate(-3px, -15px);
-	border-radius: 25px;
+	transform: translate(-5px, -15px);
+	background-color: rgb(94, 101, 112);
+	padding: 2px 5px 2px 5px;	
+	border-radius: 5px;
 	z-index: 4;
 }
 
