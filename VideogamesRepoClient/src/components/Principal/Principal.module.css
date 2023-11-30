@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Quicksand';
+	src: local('Quicksand'), url(../../fonts/Quicksand.ttf) format('truetype');
+}
+
 .top{
 	color: white;
 	display: flex;
@@ -10,7 +15,7 @@
 	height: 30px;
 	min-width: 400px;
 	border-radius: 100px;
-	font-family: 'Poppins';
+	font-family: 'Quicksand';
 	font-weight: 600;
 	font-size: 20px;
 	padding: 10px;
@@ -31,6 +36,7 @@
 	position: absolute;
 	right: 20px;
 	top: 10px;
+	text-decoration: none;
 }
 @media (max-width: 800px){
 	.add_game_link{
@@ -38,56 +44,12 @@
 	}
 }
 
-.add_game_button{
-	background: #DB3C90;
-	mix-blend-mode: normal;
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 40px;
-	padding: 10px 20px 10px 20px;
-	width: 100%;
-	justify-content: center;
-
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 300;
-	font-size: 15px;
-	line-height: 15px;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	text-decoration: none;
-
-	color: #FFFFFF;
-}
-
 .filter_stuff{
+	font-family: 'Quicksand';
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-}
-
-.reset_filters_button{
-	background: #DB3C90;
-	mix-blend-mode: normal;
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 40px;
-	padding: 10px 20px 10px 20px;
-	width: 100%;
-	max-width: 150px;
-	justify-content: center;
-
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 300;
-	font-size: 15px;
-	line-height: 15px;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	text-decoration: none;
-
-	color: #FFFFFF;
 }
 
 .list_of_list_of_filters{

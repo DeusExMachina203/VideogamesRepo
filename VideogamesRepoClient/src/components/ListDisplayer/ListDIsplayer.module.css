@@ -55,9 +55,9 @@
 	color: #FFFFFF;
 }
 
-.tags:hover{
-	background: #652045;
-	color: #fff;
+
+.tags:hover .cross{
+	filter: invert(100%);
 }
 
 .cross{

@@ -1,0 +1,32 @@
+.big_button{
+	background: #DB3C90;
+	border-radius: 40px;
+	padding: 10px 20px 10px 20px;
+	width: 100%;
+	max-width: 150px;
+	justify-content: center;
+	border-width: 0px;
+
+	font-style: normal;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+
+	color: #FFFFFF;
+	transition-duration: 50ms;
+}
+
+.big_button:hover{
+	transform: translateY(-2px);
+	color: #fff;
+}
+
+.big_button:active{
+	transition-duration: 50ms;
+	transform: translateY(2px); 
+	background: #652045;
+}
