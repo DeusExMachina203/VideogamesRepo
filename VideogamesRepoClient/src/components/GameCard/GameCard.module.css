@@ -14,6 +14,7 @@
   color: #000;
   text-decoration: none;
   width: 20%;
+  max-width: 313px;
   min-width: 300px;
 }
 .link:hover {
@@ -35,6 +36,7 @@
 	padding: 10px 10px 20px 10px;
 	height: 300px;
 	margin: 10px;
+	max-width: 250px;
 	width: 80%;
 	/* transtition smothly in and out*/
 	transition: all 0.1s ease-in-out;
