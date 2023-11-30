@@ -17,7 +17,8 @@ const ListDisplayer =  ({elements, setState, name}) => {
 			<div className = {style.list}>
 				<span className={style.name}>{name}: </span>
 				<div className = {style.tagsList}>
-					{listElements[0] !== ''?listElements.map(element => <span 
+					{listElements[0] !== ''?listElements.map(element => 
+						<span 
 							className = {style.tags} 
 							onClick ={() => {
 							setState(element)}} 
