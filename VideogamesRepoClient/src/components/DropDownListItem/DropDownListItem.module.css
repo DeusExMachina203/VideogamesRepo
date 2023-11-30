@@ -1,4 +1,7 @@
-.element{
-	border: solid #FF89C7 1px;
-	background-color: #042D70;
+.element:hover {
+	background-color: #292727;
+}
+
+button {
+ all:unset;
 }
