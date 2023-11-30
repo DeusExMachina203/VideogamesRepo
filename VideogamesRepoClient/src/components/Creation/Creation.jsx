@@ -4,6 +4,7 @@ import DropDownList from '../DropDownList/DropDownList';
 import ListDisplayer from '../ListDisplayer/ListDisplayer';
 import style from './Creation.module.css';
 import {get_genres, get_consoles} from '../../redux/games/gamesSlice';
+import BigButton from '../BigButton/BigButton';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -211,11 +212,11 @@ const Creation = () => {
 					<input className = {style.rating_input} type = "range" id = "rating" name = "rating" value = {input.rating*10} onChange = {ratingHandler} /> {input.rating >= 0? <span>{input.rating/2}</span>:<span>Califica el juego!</span>}
 					<label htmlFor = "new_platform">Agrega las plataformas en las que se encuentra el juego*: </label>
 					<ListDisplayer name = "Plataformas" setState = {consolesHandler} elements = {input.consoles.join('%')} />
-					<input className = {style.tags_input} type = "text" id = "new_platform" name = "new_platform" value = {newConsole} onChange = {newConsoleHandler}/> <button className = {style.add_button} type = "button" onClick = {handleConsoleClickDown}>Agregar</button>
+					<input className = {style.tags_input} type = "text" id = "new_platform" name = "new_platform" value = {newConsole} onChange = {newConsoleHandler}/> <BigButton text="Agregar" onClick = {handleConsoleClickDown}/>
 					<DropDownList splitChar = "%" setState = {consolesHandler} name = "platforms" elements = {consoles.length?consoles.map(console => console.name).join('%'):''} />
 					<label htmlFor = "new_genre">Agrega los géneros del juego: </label>
 					<ListDisplayer name = "Géneros" setState = {genresHandler} elements = {input.genres.map(genre => genre).join('%')} />
-					<input className = {style.tags_input} type = "text" id = "new_genre" name = "new_genre" value = {newGenre} onChange = {newGenreHandler}/> <button className = {style.add_button} type = "button" onClick = {handleGenreClickDown}>Agregar</button>
+					<input className = {style.tags_input} type = "text" id = "new_genre" name = "new_genre" value = {newGenre} onChange = {newGenreHandler}/> <BigButton text="Agregar" onClick = {handleGenreClickDown}/>
 					<DropDownList splitChar = "%" setState = {genresHandler} name = "genres" elements = {genres.map(genre => genre.name).join('%')} />
 					<input className = {style.image_input} type = "file" id = "image" name = "image" onChange = {imageHandler} />
 					<button className = {style.add_button} type="submit" disabled = {!input.name || !input.consoles || !input.description || !errorList.length}>Enviar</button>

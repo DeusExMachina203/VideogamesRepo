@@ -6,6 +6,7 @@ import {get_genres, set_genre_filter, set_alfabetical_filter, set_origin_filter}
 import CardDisplayer from '../CardDisplayer/CardDisplayer.jsx';
 import DropDownList from '../DropDownList/DropDownList.jsx';
 import ListDisplayer from '../ListDisplayer/ListDisplayer';
+import BigButton from '../BigButton/BigButton.jsx';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -64,10 +65,10 @@ const Principal = () => {
 			<div className = {style.top}>
 				<div className = {style.top_centered}>
 					<input placeholder = "Buscar..." onChange = {searchTermHandler} value = {searchTerm} className = {style.search_bar}/>
-					<Link to = "/creation" className = {style.add_game_link}><button className = {style.add_game_button}>Agregar juego</button></Link>
+					<Link to = "/creation" className = {style.add_game_link}><BigButton text = "Agregar Juego" /></Link>
 				</div>
 				<div className = {style.filter_stuff}>
-					<button className = {style.reset_filters_button} onClick = {resetFilters}>Reiniciar filtros</button>
+					<BigButton text = "Reiniciar filtros" onClick = {resetFilters} />
 					<div className = {style.filter_lists}>
 						<DropDownList splitChar = "%" setState = {alfabeticalFilterHandler} name = "Alfabetico" elements = {alfabetical.join('%')} />
 						<DropDownList splitChar = "%" setState = {genreFilterHandler} name = "Por genero" elements = {genres.map(genre => genre.name).join('%')} />

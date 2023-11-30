@@ -20,12 +20,11 @@
 }
 .principal_button{
 	background: #DB3C90;
-	mix-blend-mode: normal;
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 40px;
 	padding: 10px 20px 10px 20px;
 	width: 100%;
 	justify-content: center;
+	border-width: 0px;
 
 	font-family: 'Hind';
 	font-style: normal;
@@ -37,10 +36,18 @@
 	text-align: center;
 
 	color: #FFFFFF;
+	transition: transform .15s;
 }
 
 .principal_button:hover{
 	color: none;
+	transform: translateY(-2px);
+}
+
+.principal_button:active{
+	transition-duration: 50ms;
+	transform: translateY(2px);
+	background: #652045;
 }
 
 .title_image{
