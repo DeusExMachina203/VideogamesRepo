@@ -13,12 +13,14 @@ const ListDisplayer =  ({elements, setState, name}) => {
 	return (
 		<>
 			<div className = {style.list}>
-				<span>{name}: </span>
-				{listElements[0] !== ''?listElements.map(element => <span className = {style.tags} onClick ={() => {
-					setState(element)}} key = {element}>
-						{element}
-						<img className = {style.cross} src = {cross} alt = "cross" />
-					 </span>): null}
+				<span className={style.name}>{name}: </span>
+				<div className = {style.tagsList}>
+					{listElements[0] !== ''?listElements.map(element => <span className = {style.tags} onClick ={() => {
+						setState(element)}} key = {element}>
+							{element}
+							<img className = {style.cross} src = {cross} alt = "cross" />
+						</span>): null}
+				</div>
 			</div>
 		</>
 	)
