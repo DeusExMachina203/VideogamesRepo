@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import style from './GamePage.module.css';
 import GameInformation from '../GameInformation/GameInformation';
-import arrow from '../../media/back.png'
+import arrow from '../../media/back-plain-arrow.png'
 
 const API_KEY = import.meta.env.VITE_KEY;
 const API_URL = import.meta.env.VITE_API_URL;
@@ -30,7 +30,7 @@ const GamePage = () => {
 	return (
 		<>
 			<div className = {style.info_container}>
-				<Link className = {style.back_button} to = "/principal"><img className = {style.back_arrow} src = {arrow} alt = "arrow" /><h3>Atrás</h3></Link>
+				<Link className = {style.back_button} to = "/principal"><img className = {style.back_arrow} src = {arrow} alt = "arrow" /></Link>
 				{game.name?
 					<GameInformation  img = {game.background_image? game.background_image: game.bg_image} 
 						name = {game.name} 
@@ -38,7 +38,7 @@ const GamePage = () => {
 						launch_date = {game.launch_date} 
 						rating = {game.rating}
 						platforms = {game.property === 'own'?game.platforms:game.platforms.map(each => each.platform.name).join(' ')}
-						genres = {game.genres?game.genres.map(genre => genre.name).join(' '):' '}
+						genres = {game.genres?game.genres.map(genre => genre.name).join(', '):' '}
 					/>
 					:<span className={style.loader}></span>}
 			</div>

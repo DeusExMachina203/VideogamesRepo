@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import style from './ListDisplayer.module.css';
 import cross from '../../media/close.png';
 
-const ListDisplayer =  ({elements, setState, name}) => {
+const ListDisplayer =  ({elements, setState, name, hasCross}) => {
 
 	const [listElements, setListElements] = useState([]);
 
@@ -15,20 +15,20 @@ const ListDisplayer =  ({elements, setState, name}) => {
 	return (
 		<>
 			<div className = {style.list}>
-				<span className={style.name}>{name}: </span>
+				{name? <span className={style.name}>{name}: </span>: null}
 				<div className = {style.tagsList}>
 					{listElements[0] !== ''?listElements.map(element => 
 						<span 
-							className = {style.tags} 
+							className = {hasCross == 'yes'? style.tagsCross: style.tagsNoCross } 
 							onClick ={() => {
 							setState(element)}} 
 							key = {element}
 						>
 							{element}
-							<img className = {style.cross} 
+							{hasCross === 'yes'?<img className = {style.cross} 
 							src = {image} 
 							alt = "cross"
-							/>
+							/>:null}
 						</span>): null}
 				</div>
 			</div>
