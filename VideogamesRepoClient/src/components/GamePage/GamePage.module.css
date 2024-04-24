@@ -6,11 +6,16 @@
   color: white;
   display: flex;
   align-items: center;
+  padding: 10px;
+  z-index: 2;
+  position: absolute;
 }
 
 .back_arrow{
-  width: 10px;
-  height: 15px;
+  width: 30px;
+  height: auto;
+  filter:invert(100%);
+  transform: rotate(90deg);
 }
 
 .loader {

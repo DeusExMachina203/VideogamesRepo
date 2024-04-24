@@ -12,10 +12,10 @@
 
 .list{
 	font-family: Quicksand;
-	max-width: 120px;
+	max-width: 450px;
 	min-width: 100px;
 	min-height: 100px;
-	/* order: solid white 1px; */
+	/* border: solid white 1px; */
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -26,10 +26,11 @@
 
 .tagsList{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	width: 100%;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
 	row-gap: 2px;
 }

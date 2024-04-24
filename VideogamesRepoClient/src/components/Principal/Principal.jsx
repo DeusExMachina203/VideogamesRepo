@@ -74,11 +74,11 @@ const Principal = () => {
 						<DropDownList splitChar = "%" setState = {genreFilterHandler} name = "Por genero" elements = {genres.map(genre => genre.name).join('%')} />
 						<DropDownList splitChar = "%" setState = {originFilterHandler} name = "Por origen" elements = {origin.join('%')} />
 					</div>
-					<span>Filtros aplicados:</span>
+					<span>Filtros aplicados:</span> 
 					<div className = {style.list_of_list_of_filters}>
-						<ListDisplayer name = "Alfabético" elements = {alfabeticalFilter.value} setState = {alfabeticalFilterHandler} />
-						<ListDisplayer name = "Géneros" elements = {genreFilter.list.map(genre => genre).join('%')} setState = {genreFilterHandler} />
-						<ListDisplayer name = "Origen" elements = {originFilter} setState = {originFilterHandler} />
+						<ListDisplayer name = "Alfabético" elements = {alfabeticalFilter.value} setState = {alfabeticalFilterHandler} hasCross={'yes'}/>
+						<ListDisplayer name = "Géneros" elements = {genreFilter.list.join('%')} setState = {genreFilterHandler} hasCross={'yes'} />
+						<ListDisplayer name = "Origen" elements = {originFilter} setState = {originFilterHandler} hasCross={'yes'} />
 					</div>
 				</div>
 			</div>

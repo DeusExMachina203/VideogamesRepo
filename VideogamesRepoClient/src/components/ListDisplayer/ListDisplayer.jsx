@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import style from './ListDisplayer.module.css';
 import cross from '../../media/close.png';
 
-const ListDisplayer =  ({elements, setState, name}) => {
+const ListDisplayer =  ({elements, setState, name, hasCross}) => {
 
 	const [listElements, setListElements] = useState([]);
 
@@ -25,10 +25,10 @@ const ListDisplayer =  ({elements, setState, name}) => {
 							key = {element}
 						>
 							{element}
-							<img className = {style.cross} 
+							{hasCross === 'yes'?<img className = {style.cross} 
 							src = {image} 
 							alt = "cross"
-							/>
+							/>:null}
 						</span>): null}
 				</div>
 			</div>
