@@ -15,11 +15,11 @@ const ListDisplayer =  ({elements, setState, name, hasCross}) => {
 	return (
 		<>
 			<div className = {style.list}>
-				<span className={style.name}>{name}: </span>
+				{name? <span className={style.name}>{name}: </span>: null}
 				<div className = {style.tagsList}>
 					{listElements[0] !== ''?listElements.map(element => 
 						<span 
-							className = {style.tags} 
+							className = {hasCross == 'yes'? style.tagsCross: style.tagsNoCross } 
 							onClick ={() => {
 							setState(element)}} 
 							key = {element}
