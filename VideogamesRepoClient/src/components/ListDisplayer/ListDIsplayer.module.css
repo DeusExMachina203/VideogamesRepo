@@ -14,7 +14,6 @@
 	font-family: Quicksand;
 	max-width: 450px;
 	min-width: 100px;
-	min-height: 100px;
 	/* border: solid white 1px; */
 	border-radius: 10px;
 	display: flex;
@@ -42,6 +41,7 @@
 	min-width: 50px;
 	min-height: 20px;
 	padding: 3px 6px 3px 6px;
+	margin-left: 3px;
 
 
 	font-style: normal;
@@ -62,7 +62,8 @@
 	max-width: 200px;
 	min-width: 50px;
 	min-height: 20px;
-	padding: 10px 6px 2px 6px;
+	padding: 11px 6px 3px 6px;
+	margin-left: 3px;
 	text-align: center;
 	
 	font-style: normal;
