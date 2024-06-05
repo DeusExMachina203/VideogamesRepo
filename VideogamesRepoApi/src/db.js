@@ -7,7 +7,7 @@ const {
   dbPassword,
 } = process.env;
 
-const sequelize = new Sequelize('videogamesdb', dbUsername, dbPassword, {
+const sequelize = new Sequelize('VideogamesRepo', dbUsername, dbPassword, {
   host: '127.0.0.1',
   dialect: 'postgres',
   logging: false,
