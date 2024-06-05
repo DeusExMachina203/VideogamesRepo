@@ -200,7 +200,7 @@ const Creation = () => {
 				<ul className = {style.error}>{errorList.map(error => error.length?(<li key = {error}>{error}</li>):'')}</ul>
 				<form className = {style.game_form} onSubmit = {submitHandler}>
 					<label htmlFor = "name">Nombre del juego*: </label>
-					<input className = {style.name_input} type = "text" id = "name" name = "name" value = {input.name} onChange = {inputHandler} autocomplete = "on" />
+					<input className = {style.name_input} type = "text" id = "name" name = "name" value = {input.name} onChange = {inputHandler} autoComplete = "on" />
 					<label htmlFor = "description">description del juego*: </label>
 					<textarea className = {style.description_input} type = "text" rows = "4" id = "description" name = "description" value = {input.description} onChange = {inputHandler}></textarea>
 					<label htmlFor = "launch_date">Launch date*: </label>
