@@ -22,11 +22,13 @@ const CardDisplayer = ({ searchTerm }) => {
 	const [page, setPage] = useState([]);
 	const [pageNumber, setPageNumber] = useState(0);
 	//methods
-
+	useEffect(() => {
+		console.log(ownGames);
+	}, []);
 
 	useEffect(() => {
 		if (!(games.length)) {
-			fetch(`${API_URL}/videogames`)
+			fetch(`http://localhost:3000/videogames`)
 				.then(response => response.json())
 				.then(data => {
 					if (data.length) dispatch(get_own_games([...data]));
