@@ -144,7 +144,9 @@ const Creation = () => {
 			else formdata.append(property, input[property]);
 		}
 		try {
-			const Response = await fetch(`${API_URL}/videogames`, {
+			//			const Response = await fetch(`${API_URL}/videogames`, {
+			const Response = await fetch(`http://localhost:3000/videogames`, {
+
 				method: 'POST',
 				body: formdata
 			});
