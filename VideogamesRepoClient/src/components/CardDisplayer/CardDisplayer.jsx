@@ -35,10 +35,8 @@ const CardDisplayer = ({ searchTerm }) => {
 			const pages = [...Array(5).keys()];
 			pages.shift();
 			Promise.all(
-				pages.map(() => { })
+				pages.map(() => [])
 			)
-				.then(responses => Promise.all(responses.map(response => response.json())))
-				.then(data => dispatch(get_games(data.map(each => each.results).flat())));
 		}
 	}, []);
 
